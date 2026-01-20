@@ -1,12 +1,19 @@
+@font-face {
+  font-family: 'BankGothicRuss';
+  src: url('BankGothicRuss.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
 :root {
-  --bg: #f8f9fc;
-  --card: #ffffff;
-  --accent: #ff6b35;
-  --dark: #1a1a2e;
-  --gray: #6b7280;
-  --green: #10b981;
-  --radius: 16px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+  --bg:        #f5f0eb;     /* твой пастельный фон */
+  --card:      #ffffff;
+  --accent:    #003087;     /* твой тёмно-синий */
+  --accent2:   #4caf50;     /* зелёный switch */
+  --text:      #333;
+  --gray:      #777;
+  --radius:    16px;
+  --shadow:    0 10px 30px rgba(0,0,0,0.08);
 }
 
 * {
@@ -18,7 +25,7 @@
 body {
   font-family: 'Manrope', system-ui, sans-serif;
   background: var(--bg);
-  color: var(--dark);
+  color: var(--text);
   line-height: 1.6;
 }
 
@@ -31,30 +38,31 @@ body {
 header {
   padding: 80px 0 120px;
   text-align: center;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, #001f5b 100%);
   color: white;
   clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
 }
 
 h1 {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
+  font-size: clamp(3.5rem, 10vw, 8rem);
   font-weight: 800;
-  letter-spacing: -2px;
-  line-height: 0.95;
+  letter-spacing: -3px;
+  line-height: 0.9;
   margin-bottom: 1rem;
+  text-shadow: 0 4px 12px rgba(0,0,0,0.4);
 }
 
 .tagline {
-  font-size: clamp(1.5rem, 4vw, 2.5rem);
+  font-size: clamp(1.6rem, 5vw, 3rem);
   opacity: 0.95;
-  margin-bottom: 2.5rem;
+  margin-bottom: 3rem;
 }
 
 .stats {
   display: flex;
   justify-content: center;
-  gap: 4rem;
+  gap: 5rem;
   flex-wrap: wrap;
 }
 
@@ -63,13 +71,14 @@ h1 {
 }
 
 .stat-number {
-  font-size: 3.5rem;
+  font-size: 4rem;
   font-weight: 800;
-  color: var(--accent);
+  color: var(--accent2);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .stat-label {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   opacity: 0.9;
 }
 
@@ -78,17 +87,17 @@ section {
 }
 
 h2 {
-  font-family: 'Orbitron', sans-serif;
+  font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
   font-size: 3.5rem;
   text-align: center;
   margin-bottom: 4rem;
-  color: var(--dark);
+  color: var(--accent);
 }
 
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 2rem;
+  gap: 2.5rem;
 }
 
 .card {
@@ -96,11 +105,12 @@ h2 {
   border-radius: var(--radius);
   padding: 2.5rem;
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .card:hover {
-  transform: translateY(-12px);
+  transform: translateY(-16px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
 }
 
 .card h3 {
@@ -116,9 +126,9 @@ h2 {
 }
 
 .idea-list li {
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
   position: relative;
-  padding-left: 2rem;
+  padding-left: 2.5rem;
 }
 
 .idea-list li::before {
@@ -126,32 +136,12 @@ h2 {
   position: absolute;
   left: 0;
   color: var(--accent);
-}
-
-.table-wrapper {
-  overflow-x: auto;
-}
-
-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 1.1rem;
-}
-
-th, td {
-  padding: 1.2rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-th {
-  background: #f1f5f9;
-  font-weight: 600;
+  font-weight: bold;
 }
 
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
@@ -160,12 +150,12 @@ th {
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .photo-card:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+  transform: scale(1.04);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
 }
 
 .photo-card img {
@@ -177,17 +167,18 @@ th {
 }
 
 .quote {
-  font-size: 1.6rem;
+  font-size: 1.8rem;
   font-style: italic;
   text-align: center;
-  max-width: 700px;
+  max-width: 800px;
   margin: 6rem auto;
   color: var(--gray);
   padding: 0 1rem;
+  line-height: 1.8;
 }
 
 footer {
-  background: var(--dark);
+  background: var(--accent);
   color: white;
   text-align: center;
   padding: 5rem 0 3rem;
@@ -195,14 +186,14 @@ footer {
 
 .social {
   margin-top: 2rem;
-  font-size: 1.2rem;
+  font-size: 1.3rem;
 }
 
 .social a {
   color: white;
   text-decoration: none;
-  margin: 0 1.5rem;
-  opacity: 0.9;
+  margin: 0 1.8rem;
+  opacity: 0.95;
   transition: opacity 0.2s;
 }
 
@@ -211,8 +202,8 @@ footer {
 }
 
 @media (max-width: 768px) {
-  h1 { font-size: 4.5rem; }
-  h2 { font-size: 2.5rem; }
-  .stats { gap: 2rem; }
-  .stat-number { font-size: 2.5rem; }
+  h1 { font-size: 5rem; }
+  h2 { font-size: 2.8rem; }
+  .stats { gap: 3rem; }
+  .stat-number { font-size: 3rem; }
 }
