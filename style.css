@@ -62,12 +62,12 @@ body {
   transform: scale(1.08);
 }
 
-/* Карточка создателя (под логотипом) */
+/* Карточка создателя (под логотипом, по центру) */
 .creator-section {
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 100px 0 80px; /* отступ сверху, чтобы не перекрывать логотип */
+  margin: 100px 0 80px;
 }
 
 .creator-card {
@@ -141,6 +141,7 @@ h1 {
   font-size: 4rem;
   font-weight: 800;
   color: var(--accent2);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
 .stat-label {
@@ -315,4 +316,9 @@ footer {
   .stats { gap: 3rem; }
   .stat-number { font-size: 3rem; }
   .photo-grid { grid-template-columns: 1fr; }
+  .logo-wrapper { top: 16px; left: 16px; }
+  .logo { width: 100px; }
+  .creator-section { margin: 80px 0 60px; }
+  .creator-card { padding: 20px; max-width: 280px; }
+  .creator-photo { width: 100px; height: 100px; }
 }
