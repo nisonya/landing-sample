@@ -24,7 +24,7 @@
 }
 
 body {
-  font-family: 'BankGothicRuss', system-ui, -apple-system, sans-serif;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
@@ -38,16 +38,16 @@ body {
   padding: 0 24px;
 }
 
-/* Логотип — фиксирован в левом верхнем углу, крупнее */
+/* Логотип */
 .logo-wrapper {
   position: fixed;
   top: 30px;
-  left: 40px;          /* чуть дальше от края */
+  left: 40px;
   z-index: 1000;
 }
 
 .logo {
-  width: 240px;        /* стало крупнее (было 180px) */
+  width: 240px;
   height: auto;
   display: block;
   border-radius: 0;
@@ -58,6 +58,7 @@ body {
   transform: scale(1.12);
 }
 
+/* Header и Footer */
 header,
 footer {
   width: 100%;
@@ -75,11 +76,13 @@ footer {
   color: white;
   padding: 5rem 0 3rem;
 }
+
 section {
   width: 100%;
   padding: 100px 0;
 }
 
+/* Creator */
 .creator-section {
   background: var(--card);
   padding: 100px 0 120px;
@@ -118,6 +121,7 @@ section {
   margin: 10px 0;
 }
 
+/* Заголовки */
 h1 {
   font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
   font-size: clamp(4rem, 12vw, 9rem);
@@ -141,8 +145,6 @@ h2 {
   margin-bottom: 3.5rem;
 }
 
-/* Остальные стили остаются почти без изменений */
-
 .stats {
   display: flex;
   justify-content: center;
@@ -161,30 +163,145 @@ h2 {
   opacity: 0.9;
 }
 
+/* Карточки идей */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
 }
 
+.card {
+  background: var(--card);
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  box-shadow: var(--shadow);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-16px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+}
+
+.card h3 {
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  color: var(--accent);
+}
+
+/* Галерея */
 .photo-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2rem;
-  margin-top: 3rem;
+  margin-top: 3.5rem;
+}
+
+.photo-card {
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--radius);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  transition: all 0.35s ease;
+}
+
+.photo-card:hover {
+  transform: translateY(-12px);
+  box-shadow: 0 25px 60px rgba(0,0,0,0.14);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.photo-card:hover img {
+  transform: scale(1.08);
 }
 
 /* Таблица */
 .table-wrapper {
   overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 2rem auto 0;
   max-width: 100%;
 }
 
 table {
   width: 100%;
+  min-width: 700px;
   max-width: 1100px;
   margin: 0 auto;
-  border-collapse: collapse;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+thead th {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  padding: 1.2rem 1.4rem;
+  font-size: 1.05rem;
+}
+
+tbody tr {
+  transition: background-color 0.2s ease;
+}
+
+tbody tr:hover {
+  background-color: rgba(0, 48, 135, 0.04);
+}
+
+td {
+  padding: 1.3rem 1.4rem;
+  border-bottom: 1px solid #e5e7eb;
+  vertical-align: middle;
+}
+
+td:first-child {
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.stars {
+  font-size: 1.6rem;
+  letter-spacing: 4px;
+  color: var(--star);
+  line-height: 1;
+}
+
+/* План */
+.idea-list {
+  list-style: none;
+  font-size: 1.3rem;
+  line-height: 2;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.idea-list li {
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.idea-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 /* Цитата */
@@ -198,7 +315,7 @@ table {
   line-height: 1.8;
 }
 
-/* Соцсети в футере */
+/* Соцсети */
 .social {
   margin-top: 2rem;
   font-size: 1.4rem;
@@ -235,4 +352,49 @@ table {
 
   .stats { gap: 3.5rem; }
   .stat-number { font-size: 3.5rem; }
+
+  .photo-grid {
+    grid-template-columns: 1fr;
+    gap: 1.8rem;
+  }
+  .photo-card img {
+    height: 240px;
+  }
+
+  /* Мобильная таблица */
+  thead { display: none; }
+
+  tbody tr {
+    display: block;
+    margin-bottom: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  }
+
+  tr td {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 1.2rem;
+    border: none;
+    border-bottom: 1px solid #f0f0f0;
+  }
+
+  tr td:last-child {
+    border-bottom: none;
+  }
+
+  td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--accent);
+    flex: 0 0 45%;
+    padding-right: 1rem;
+  }
+
+  .stars {
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+  }
 }
