@@ -11,20 +11,8 @@
 <!-- Логотип в левом верхнем углу -->
 <div class="logo-wrapper">
   <a href="#" class="logo-link">
-    <img src="images/img4.jpg" alt="Логотип проекта" class="logo">
+    <img src="images/img4.svg" alt="Логотип проекта" class="logo">
   </a>
-</div>
-
-<!-- Карточка создателя (под логотипом, по центру) -->
-<div class="creator-section">
-  <div class="creator-card">
-    <img src="images/student.jpg" alt="Иванов Иван" class="creator-photo">
-    <div class="creator-info">
-      <h3>Иванов Иван</h3>
-      <p>Группа: С-02</p>
-      <p>Наставник: Иванов Иван Иванович</p>
-    </div>
-  </div>
 </div>
 
 <header>
@@ -45,10 +33,23 @@
   </div>
 </header>
 
+<!-- Большой блок создателя (полноширинный, не карточка) -->
+<section id="creator" class="creator-section">
+  <div class="container">
+    <div class="creator-block">
+      <img src="images/student.jpg" alt="Иванов Иван" class="creator-photo">
+      <div class="creator-info">
+        <h3>Иванов Иван</h3>
+        <p>Группа: С-02</p>
+        <p>Наставник: Иванов Иван Иванович</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="ideas">
   <div class="container">
     <h2>Мои идеи</h2>
-
     <div class="grid">
       <div class="card">
         <h3>01. Отмена уроков</h3>
@@ -73,7 +74,6 @@
 <section id="comparison">
   <div class="container">
     <h2>Сравнение идей</h2>
-
     <div class="table-wrapper">
       <table>
         <thead>
@@ -128,7 +128,6 @@
 <section id="gallery">
   <div class="container">
     <h2>Фотографии проекта</h2>
-
     <div class="photo-grid">
       <div class="photo-card">
         <img src="images/img1.jpg" alt="Фото проекта 1" loading="lazy">
@@ -146,7 +145,6 @@
 <section id="plan">
   <div class="container">
     <h2>План реализации</h2>
-
     <ol class="idea-list">
       <li>Собрать команду из самых активных учеников</li>
       <li>Провести собрание с учителями и директором</li>
@@ -171,9 +169,9 @@
 <footer>
   <div class="container">
     <p>Кировск, 2026</p>
-
     <div class="social">
       <a href="#">Школа</a> •
+      <a href="#">Instagram</a> •
       <a href="#">Telegram</a>
     </div>
   </div>
