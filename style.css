@@ -247,3 +247,24 @@ footer {
   .logo { width: 60px; height: 60px; }
   .creator-info { font-size: 0.9rem; }
 }
+/* Для звёздочек в таблице */
+.stars {
+  font-size: 1.4rem;
+  letter-spacing: 2px;
+  color: #f59e0b; /* золотой цвет звёзд */
+  font-weight: bold;
+}
+
+table th, table td {
+  padding: 1.2rem 1.5rem;
+}
+
+table thead th {
+  background: var(--accent);
+  color: white;
+  font-weight: 700;
+}
+
+table tbody tr:nth-child(even) {
+  background: #f8f9fa;
+}
