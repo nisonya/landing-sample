@@ -6,10 +6,10 @@
 }
 
 :root {
-  --bg:        #f5f0eb;     /* твой пастельный фон */
+  --bg:        #f5f0eb;
   --card:      #ffffff;
-  --accent:    #003087;     /* твой тёмно-синий */
-  --accent2:   #4caf50;     /* зелёный switch */
+  --accent:    #003087;
+  --accent2:   #4caf50;
   --text:      #333;
   --gray:      #777;
   --radius:    16px;
@@ -35,8 +35,44 @@ body {
   padding: 0 24px;
 }
 
+/* Логотип + создатель (верхний левый угол) */
+.logo-creator {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-link {
+  display: block;
+}
+
+.logo {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  transition: transform 0.3s;
+}
+
+.logo-link:hover .logo {
+  transform: scale(1.1);
+}
+
+.creator-info {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: var(--text);
+  font-weight: 500;
+}
+
+/* Header */
 header {
-  padding: 80px 0 120px;
+  padding: 140px 0 120px; /* больше отступа сверху из-за фиксированного логотипа */
   text-align: center;
   background: linear-gradient(135deg, var(--accent) 0%, #001f5b 100%);
   color: white;
@@ -82,6 +118,7 @@ h1 {
   opacity: 0.9;
 }
 
+/* Секции */
 section {
   padding: 100px 0;
 }
@@ -119,26 +156,6 @@ h2 {
   color: var(--accent);
 }
 
-.idea-list {
-  list-style: none;
-  font-size: 1.3rem;
-  line-height: 2;
-}
-
-.idea-list li {
-  margin-bottom: 1.2rem;
-  position: relative;
-  padding-left: 2.5rem;
-}
-
-.idea-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: bold;
-}
-
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
@@ -164,6 +181,26 @@ h2 {
   display: block;
   object-fit: cover;
   aspect-ratio: 4 / 3;
+}
+
+.idea-list {
+  list-style: none;
+  font-size: 1.3rem;
+  line-height: 2;
+}
+
+.idea-list li {
+  margin-bottom: 1.2rem;
+  position: relative;
+  padding-left: 2.5rem;
+}
+
+.idea-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: bold;
 }
 
 .quote {
@@ -206,4 +243,7 @@ footer {
   h2 { font-size: 2.8rem; }
   .stats { gap: 3rem; }
   .stat-number { font-size: 3rem; }
+  .logo-creator { top: 16px; left: 16px; gap: 12px; }
+  .logo { width: 60px; height: 60px; }
+  .creator-info { font-size: 0.9rem; }
 }
