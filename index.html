@@ -3,21 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<!-- Название проекта  -->
   <title>Нет уроков! — Мой проект</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- Логотип и информация о создателе (вверху слева) -->
-<div class="logo-creator">
+<!-- Логотип  -->
+<div class="logo-wrapper">
   <a href="#" class="logo-link">
-    <img src="images/img4.svg" alt="Логотип проекта" class="logo">
+    <img src="images/img4.jpg" alt="Логотип проекта" class="logo">
   </a>
-  <div class="creator-info">
-    <strong>Иванов Иван</strong><br>
-    Группа: С-02<br>
-    Наставник: Иванов Иван Иванович
-  </div>
 </div>
 
 <header>
@@ -37,6 +33,22 @@
     </div>
   </div>
 </header>
+
+<!-- Секция "О создателе" — карточка с фото и информацией -->
+<section id="creator">
+  <div class="container">
+    <h2>О создателе проекта</h2>
+
+    <div class="creator-card">
+      <img src="images/student.jpg" alt="Иванов Иван" class="creator-photo">
+      <div class="creator-info">
+        <h3>Иванов Иван</h3>
+        <p>Группа: С-02</p>
+        <p>Наставник: Иванов Иван Иванович</p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <section id="ideas">
   <div class="container">
@@ -166,7 +178,6 @@
 
     <div class="social">
       <a href="#">Школа</a> •
-      <a href="#">Instagram</a> •
       <a href="#">Telegram</a>
     </div>
   </div>
