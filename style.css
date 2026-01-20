@@ -24,16 +24,13 @@
 }
 
 body {
-  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
+  font-family: 'BankGothicRuss', system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
 }
 
-/* =====================================
-   Главный контейнер — строго по центру
-   ===================================== */
 .container {
   max-width: 1200px;
   width: 100%;
@@ -61,7 +58,6 @@ body {
   transform: scale(1.12);
 }
 
-/* Header и footer — полноширинные, но контент внутри по центру */
 header,
 footer {
   width: 100%;
@@ -79,17 +75,11 @@ footer {
   color: white;
   padding: 5rem 0 3rem;
 }
-
-/* Все секции — контент строго по центру */
 section {
   width: 100%;
   padding: 100px 0;
 }
 
-/* Убрано лишнее display:flex + justify-content:center на section,
-   теперь центрирование делает .container */
-
-/* === Creator block === */
 .creator-section {
   background: var(--card);
   padding: 100px 0 120px;
@@ -128,7 +118,6 @@ section {
   margin: 10px 0;
 }
 
-/* Заголовки */
 h1 {
   font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
   font-size: clamp(4rem, 12vw, 9rem);
@@ -172,14 +161,12 @@ h2 {
   opacity: 0.9;
 }
 
-/* Grid идей */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
 }
 
-/* Галерея */
 .photo-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
