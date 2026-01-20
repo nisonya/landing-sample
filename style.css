@@ -6,15 +6,15 @@
 }
 
 :root {
-  --bg:        #f5f0eb;
-  --card:      #ffffff;
-  --accent:    #003087;
-  --accent2:   #4caf50;
-  --text:      #333;
-  --gray:      #777;
-  --star:      #f59e0b;
-  --radius:    16px;
-  --shadow:    0 10px 30px rgba(0,0,0,0.08);
+  --bg: #f5f0eb;
+  --card: #ffffff;
+  --accent: #003087;
+  --accent2: #4caf50;
+  --text: #333;
+  --gray: #777;
+  --star: #f59e0b;
+  --radius: 16px;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
 * {
@@ -24,64 +24,88 @@
 }
 
 body {
-  font-family: 'Manrope', system-ui, sans-serif;
+  font-family: 'Manrope', system-ui, -apple-system, sans-serif;
   background: var(--bg);
   color: var(--text);
   line-height: 1.6;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   min-height: 100vh;
 }
 
+/* =====================================
+   Главный контейнер — строго по центру
+   ===================================== */
 .container {
   max-width: 1200px;
   width: 100%;
+  margin: 0 auto;
   padding: 0 24px;
-  text-align: center;
 }
 
-/* Логотип — только в левом верхнем углу, без рамки, увеличен */
+/* Логотип — фиксирован в левом верхнем углу, крупнее */
 .logo-wrapper {
   position: fixed;
   top: 30px;
-  left: 30px;
+  left: 40px;          /* чуть дальше от края */
   z-index: 1000;
 }
 
 .logo {
-  width: 180px;                /* увеличен */
+  width: 240px;        /* стало крупнее (было 180px) */
   height: auto;
   display: block;
-  border-radius: 0;            /* без рамки */
+  border-radius: 0;
   transition: transform 0.3s ease;
 }
 
 .logo:hover {
-  transform: scale(1.1);
+  transform: scale(1.12);
 }
 
-/* Большой блок создателя — полноширинный, по центру */
-.creator-section {
+/* Header и footer — полноширинные, но контент внутри по центру */
+header,
+footer {
   width: 100%;
-  padding: 80px 0 100px;
-  display: flex;
-  justify-content: center;
-  background: var(--card);
+  text-align: center;
 }
 
-.creator-card {
+header {
+  padding: 140px 0 120px;
+  background: var(--accent);
+  color: white;
+}
+
+footer {
+  background: var(--accent);
+  color: white;
+  padding: 5rem 0 3rem;
+}
+
+/* Все секции — контент строго по центру */
+section {
+  width: 100%;
+  padding: 100px 0;
+}
+
+/* Убрано лишнее display:flex + justify-content:center на section,
+   теперь центрирование делает .container */
+
+/* === Creator block === */
+.creator-section {
+  background: var(--card);
+  padding: 100px 0 120px;
+}
+
+.creator-block {
   display: flex;
   align-items: center;
   gap: 60px;
   max-width: 1000px;
-  width: 100%;
-  padding: 0 40px;
+  margin: 0 auto;
 }
 
 .creator-photo {
-  width: 220px;                /* увеличен */
-  height: 220px;
+  width: 240px;
+  height: 240px;
   object-fit: cover;
   border-radius: 50%;
   box-shadow: 0 8px 24px rgba(0,0,0,0.15);
@@ -93,72 +117,59 @@ body {
 }
 
 .creator-info h3 {
-  font-size: 2.4rem;
+  font-size: 2.6rem;
   margin-bottom: 16px;
   color: var(--accent);
 }
 
 .creator-info p {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   color: var(--gray);
-  margin: 8px 0;
+  margin: 10px 0;
 }
 
-/* Header — по центру, без clip-path */
-header {
-  padding: 120px 0 100px;
-  text-align: center;
-  background: var(--accent);
-  color: white;
-  width: 100%;
-}
-
+/* Заголовки */
 h1 {
   font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
-  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-size: clamp(4rem, 12vw, 9rem);
   font-weight: 800;
-  letter-spacing: -3px;
+  letter-spacing: -4px;
   line-height: 0.9;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
+}
+
+h2 {
+  font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
+  font-size: 3.8rem;
+  margin-bottom: 3.5rem;
+  color: var(--accent);
+  text-align: center;
 }
 
 .tagline {
-  font-size: clamp(1.6rem, 5vw, 3rem);
+  font-size: clamp(1.8rem, 5vw, 3.2rem);
   opacity: 0.95;
-  margin-bottom: 3rem;
+  margin-bottom: 3.5rem;
 }
+
+/* Остальные стили остаются почти без изменений */
 
 .stats {
   display: flex;
   justify-content: center;
-  gap: 5rem;
+  gap: 6rem;
   flex-wrap: wrap;
 }
 
 .stat-number {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 800;
   color: var(--accent2);
 }
 
 .stat-label {
-  font-size: 1.3rem;
+  font-size: 1.4rem;
   opacity: 0.9;
-}
-
-/* Секции — строго по центру */
-section {
-  padding: 100px 0;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-h2 {
-  font-family: 'BankGothicRuss', 'Orbitron', sans-serif;
-  font-size: 3.5rem;
-  margin-bottom: 4rem;
-  color: var(--accent);
 }
 
 /* Grid идей */
@@ -166,25 +177,6 @@ h2 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
   gap: 2.5rem;
-}
-
-.card {
-  background: var(--card);
-  border-radius: var(--radius);
-  padding: 2.5rem;
-  box-shadow: var(--shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.card:hover {
-  transform: translateY(-16px);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.12);
-}
-
-.card h3 {
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
-  color: var(--accent);
 }
 
 /* Галерея */
@@ -195,109 +187,40 @@ h2 {
   margin-top: 3rem;
 }
 
-.photo-card {
-  overflow: hidden;
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
-}
-
-.photo-card:hover {
-  transform: scale(1.04);
-  box-shadow: 0 25px 60px rgba(0,0,0,0.15);
-}
-
-.photo-card img {
-  width: 100%;
-  height: auto;
-  display: block;
-  object-fit: cover;
-  aspect-ratio: 4 / 3;
-}
-
-/* Список плана */
-.idea-list {
-  list-style: none;
-  font-size: 1.3rem;
-  line-height: 2;
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.idea-list li {
-  margin-bottom: 1.2rem;
-  position: relative;
-  padding-left: 2.5rem;
-}
-
-.idea-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--accent);
-  font-weight: bold;
-}
-
-/* Таблица сравнения со звёздами */
+/* Таблица */
 .table-wrapper {
   overflow-x: auto;
+  max-width: 100%;
 }
 
 table {
   width: 100%;
-  border-collapse: collapse;
-  font-size: 1.1rem;
+  max-width: 1100px;
   margin: 0 auto;
-}
-
-th, td {
-  padding: 1.2rem 1.5rem;
-  text-align: left;
-  border-bottom: 1px solid #e5e7eb;
-}
-
-th {
-  background: var(--accent);
-  color: white;
-  font-weight: 700;
-}
-
-.stars {
-  font-size: 1.4rem;
-  letter-spacing: 3px;
-  color: var(--star);
-  font-weight: bold;
+  border-collapse: collapse;
 }
 
 /* Цитата */
 .quote {
-  font-size: 1.8rem;
+  font-size: 2rem;
   font-style: italic;
   text-align: center;
-  max-width: 800px;
+  max-width: 900px;
   margin: 6rem auto;
   color: var(--gray);
   line-height: 1.8;
 }
 
-/* Футер — по центру */
-footer {
-  background: var(--accent);
-  color: white;
-  text-align: center;
-  padding: 5rem 0 3rem;
-  width: 100%;
-}
-
+/* Соцсети в футере */
 .social {
   margin-top: 2rem;
-  font-size: 1.3rem;
+  font-size: 1.4rem;
 }
 
 .social a {
   color: white;
   text-decoration: none;
-  margin: 0 1.8rem;
+  margin: 0 2rem;
   opacity: 0.95;
   transition: opacity 0.2s;
 }
@@ -308,14 +231,21 @@ footer {
 
 /* Адаптив */
 @media (max-width: 768px) {
-  h1 { font-size: 5rem; }
-  h2 { font-size: 2.8rem; }
-  .stats { gap: 3rem; }
-  .stat-number { font-size: 3rem; }
-  .photo-grid { grid-template-columns: 1fr; }
-  .logo-wrapper { top: 16px; left: 16px; }
-  .logo { width: 100px; }
-  .creator-section { padding: 40px 0; }
-  .creator-card { flex-direction: column; gap: 24px; padding: 20px; }
-  .creator-photo { width: 160px; height: 160px; }
+  .logo-wrapper { top: 20px; left: 20px; }
+  .logo { width: 140px; }
+
+  h1 { font-size: 5.5rem; }
+  h2 { font-size: 3rem; }
+
+  .creator-block {
+    flex-direction: column;
+    gap: 30px;
+  }
+  .creator-photo {
+    width: 180px;
+    height: 180px;
+  }
+
+  .stats { gap: 3.5rem; }
+  .stat-number { font-size: 3.5rem; }
 }
