@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Мой проект — Нет уроков!</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f9fc;
+      --card: #ffffff;
+      --accent: #ff6b35;
+      --dark: #1a1a2e;
+      --gray: #6b7280;
+      --green: #10b981;
+      --radius: 16px;
+      --shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Manrope', system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    header {
+      padding: 80px 0 120px;
+      text-align: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+    }
+
+    h1 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: clamp(3.5rem, 8vw, 7rem);
+      font-weight: 800;
+      letter-spacing: -2px;
+      line-height: 0.95;
+      margin-bottom: 1rem;
+    }
+
+    .tagline {
+      font-size: clamp(1.5rem, 4vw, 2.5rem);
+      opacity: 0.95;
+      margin-bottom: 2.5rem;
+    }
+
+    .stats {
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 3.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .stat-label {
+      font-size: 1.1rem;
+      opacity: 0.9;
+    }
+
+    section {
+      padding: 120px 0;
+    }
+
+    h2 {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 3.5rem;
+      text-align: center;
+      margin-bottom: 4rem;
+      color: var(--dark);
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-12px);
+    }
+
+    .card h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+    }
+
+    .idea-list {
+      list-style: none;
+      font-size: 1.3rem;
+      line-height: 2;
+    }
+
+    .idea-list li {
+      margin-bottom: 1rem;
+      position: relative;
+      padding-left: 2rem;
+    }
+
+    .idea-list li::before {
+      content: "→";
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .table-wrapper {
+      overflow-x: auto;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.1rem;
+    }
+
+    th, td {
+      padding: 1.2rem;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+    }
+
+    th {
+      background: #f1f5f9;
+      font-weight: 600;
+    }
+
+    .quote {
+      font-size: 1.6rem;
+      font-style: italic;
+      text-align: center;
+      max-width: 700px;
+      margin: 6rem auto;
+      color: var(--gray);
+      padding: 0 1rem;
+    }
+
+    footer {
+      background: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 5rem 0 3rem;
+    }
+
+    .social {
+      margin-top: 2rem;
+      font-size: 1.2rem;
+    }
+
+    .social a {
+      color: white;
+      text-decoration: none;
+      margin: 0 1.5rem;
+      opacity: 0.9;
+      transition: opacity 0.2s;
+    }
+
+    .social a:hover {
+      opacity: 1;
+    }
+
+    @media (max-width: 768px) {
+      h1 { font-size: 4.5rem; }
+      h2 { font-size: 2.5rem; }
+      .stats { gap: 2rem; }
+      .stat-number { font-size: 2.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="container">
+    <h1>НЕТ УРОКОВ!</h1>
+    <p class="tagline">А что если в школе вообще не будет уроков?</p>
+
+    <div class="stats">
+      <div class="stat">
+        <div class="stat-number">1500</div>
+        <div class="stat-label">респондентов</div>
+      </div>
+      <div class="stat">
+        <div class="stat-number">145 245</div>
+        <div class="stat-label">уроков пропущено</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h2>Мои идеи</h2>
+
+    <div class="grid">
+      <div class="card">
+        <h3>01. Отмена уроков</h3>
+        <p>В школе не будет уроков вообще!</p>
+      </div>
+      <div class="card">
+        <h3>02. Отмена оценок</h3>
+        <p>Уроки будут, но без оценок</p>
+      </div>
+      <div class="card">
+        <h3>03. Интересные занятия</h3>
+        <p>Занятия в развлекательном формате</p>
+      </div>
+      <div class="card">
+        <h3>04. Десерты каждый день</h3>
+        <p>Десерты заманивают учеников в школу</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#f1f5f9;">
+  <div class="container">
+    <h2>Сравнение идей</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Название идеи</th>
+            <th>Интерес</th>
+            <th>Полезность</th>
+            <th>Реализуемость</th>
+            <th>Итог</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>01</td>
+            <td>Отмена уроков</td>
+            <td>★★★★★</td>
+            <td>★☆☆☆☆</td>
+            <td>★☆☆☆☆</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>02</td>
+            <td>Отмена оценок</td>
+            <td>★★★★☆</td>
+            <td>★★★☆☆</td>
+            <td>★★☆☆☆</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td>03</td>
+            <td>Интересные занятия</td>
+            <td>★★★★★</td>
+            <td>★★★★☆</td>
+            <td>★★★★☆</td>
+            <td>Рекомендую</td>
+          </tr>
+          <tr>
+            <td>04</td>
+            <td>Десерты каждый день</td>
+            <td>★★★★★</td>
+            <td>★★☆☆☆</td>
+            <td>★★★★★</td>
+            <td>Рекомендую</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <h2>План реализации</h2>
+
+    <ol class="idea-list">
+      <li>Собрать команду из самых активных учеников</li>
+      <li>Провести собрание с учителями и директором</li>
+      <li>Запустить пилотный месяц интересных занятий</li>
+      <li>Добавить десерты в столовую каждый день</li>
+      <li>До 1 марта — собрать отзывы</li>
+      <li>С нового учебного года — внедрить систему полностью</li>
+    </ol>
+  </div>
+</section>
+
+<section style="background:#f1f5f9;">
+  <div class="container">
+    <h2>Стоимость проекта</h2>
+
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>№</th>
+            <th>Что нужно</th>
+            <th>Количество</th>
+            <th>Цена за единицу</th>
+            <th>Общая стоимость</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>ЧокоПай</td>
+            <td>587 шт</td>
+            <td>40 ₽</td>
+            <td>23 480 ₽</td>
+          </tr>
+          <!-- добавь остальные строки по своей презентации -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="quote">
+      «Физика — это как суфле: один неверный шаг, и всё оседает!»
+      <br><br>
+      — ChatGPT
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>Проект выполнен учеником группы С-02</p>
+    <p>Наставник: Иванов Иван Иванович</p>
+    <p>Кировск, 2026</p>
+
+    <div class="social">
+      <a href="#">Школа</a> •
+      <a href="#">Instagram</a> •
+      <a href="#">Telegram</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
